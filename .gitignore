@@ -1,0 +1,22 @@
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Local temporary files and backups
+/tmp/
+/backup/
+
+# Device manual (kept locally)
+/_upload_file_*.pdf
+
+# Local environment configuration; keep deployment examples
+.env
+.env.*
+*.env
+!*.env.example

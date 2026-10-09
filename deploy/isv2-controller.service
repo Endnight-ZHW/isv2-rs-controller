@@ -1,0 +1,25 @@
+[Unit]
+Description=iSV2-RS Orange Pi RS-485 HTTP Controller
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=orangepi
+Group=orangepi
+SupplementaryGroups=dialout
+WorkingDirectory=/home/orangepi/isv2-controller
+EnvironmentFile=/etc/default/isv2-controller
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/home/orangepi/isv2-controller/.venv/bin/python /home/orangepi/isv2-controller/orange_pi_server.py
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=15
+KillSignal=SIGTERM
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+
+[Install]
+WantedBy=multi-user.target
